@@ -1,0 +1,29 @@
+
+<form [formGroup]="movieForm" (ngSubmit)="addMovie()">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title" placeholder="Enter a title">
+        <div *ngIf="movieForm.controls['title']?.touched && movieForm.controls['title']?.invalid">
+            Title is required.
+        </div>
+    </div>
+    <div>
+        <label for="director">Director</label>
+        <input id="director" type="text" formControlName="director" placeholder="Enter a director">
+        <div *ngIf="movieForm.controls['director']?.touched && movieForm.controls['director']?.invalid">
+            Director is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="year">Year</label>
+        <input id="year" type="text" formControlName="year" placeholder="Enter a year">
+        <div *ngIf="movieForm.controls['year']?.touched && movieForm.controls['year']?.invalid">
+            <div *ngIf="movieForm.controls['year']?.errors?.['required']">Year is required</div>
+            <div *ngIf="movieForm.controls['year']?.errors?.['min']">Year should be greater than 1900.</div>
+            <div *ngIf="movieForm.controls['year']?.errors?.['max']">Year should be less than current year.</div>
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+
+</form>
