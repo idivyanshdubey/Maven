@@ -4,7 +4,7 @@
         <label for="title">Title</label>
         <input id="title" type="text" formControlName="title" placeholder="Enter a title">
         <div *ngIf="movieForm.controls['title']?.touched && movieForm.controls['title']?.invalid">
-            Title is required.
+            <p><small>Title is required.</small></p>
         </div>
     </div>
     <div>

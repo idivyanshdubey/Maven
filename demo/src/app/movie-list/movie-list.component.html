@@ -1,8 +1,10 @@
 <div>
     <h2>Movie List</h2>
+    <div>
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search by title or director" (input)="filterMovies()"/> 
+    </div>
     <button routerLink="/add">Add Movie</button>
-
-    <table>
+      <table>
         <tr>
         <th>Id</th>
         <th>Title</th>
